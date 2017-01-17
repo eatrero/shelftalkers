@@ -1,0 +1,6 @@
+<h2>Edit talker</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: talker_path(@conn, :update, @talker) %>
+
+<%= link "Back", to: talker_path(@conn, :index) %>

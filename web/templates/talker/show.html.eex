@@ -1,0 +1,38 @@
+<h2>Show talker</h2>
+
+<ul>
+
+  <li>
+    <strong>Brewer:</strong>
+    <%= @talker.brewer %>
+  </li>
+
+  <li>
+    <strong>Style:</strong>
+    <%= @talker.style %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @talker.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @talker.description %>
+  </li>
+
+  <li>
+    <strong>Abv:</strong>
+    <%= @talker.abv %>
+  </li>
+
+  <li>
+    <strong>Rating:</strong>
+    <%= @talker.rating %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: talker_path(@conn, :edit, @talker) %>
+<%= link "Back", to: talker_path(@conn, :index) %>

@@ -1,0 +1,39 @@
+<h2>Shelf Talkers</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Brewer</th>
+      <th>Style</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Abv</th>
+      <th>Rating</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for talker <- @talkers do %>
+    <tr>
+      <td><input type="checkbox" id="<%= talker.id %>"></td>
+      <td><%= talker.brewer %></td>
+      <td><%= talker.style %></td>
+      <td><%= talker.name %></td>
+      <td><%= talker.description %></td>
+      <td><%= talker.abv %></td>
+      <td><%= talker.rating %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: talker_path(@conn, :show, talker), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: talker_path(@conn, :edit, talker), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: talker_path(@conn, :delete, talker), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New Shelf Talker", to: talker_path(@conn, :new), class: "btn btn-default" %>
+<%= content_tag :Print, "Print", class: "btn btn-default btn-success" %>
