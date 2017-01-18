@@ -67,4 +67,12 @@ defmodule Shelftalkers.TalkerController do
     |> put_flash(:info, "Talker deleted successfully.")
     |> redirect(to: talker_path(conn, :index))
   end
+
+  def pdf(conn, _params) do
+    IO.puts(_params)
+    conn
+    |> put_resp_content_type("application/pdf")
+#    |> put_resp_header("content-disposition", "attachment; filename=\"/var/folders/96/v5g5_2nj06z3xk59kn6wtynh0000gn/T/8vl7KNVU.pdf\"")
+    |> send_file(200, "/var/folders/96/v5g5_2nj06z3xk59kn6wtynh0000gn/T/8vl7KNVU.pdf")
+  end
 end

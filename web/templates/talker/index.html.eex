@@ -36,4 +36,4 @@
 </table>
 
 <%= link "New Shelf Talker", to: talker_path(@conn, :new), class: "btn btn-default" %>
-<%= content_tag :Print, "Print", class: "btn btn-default btn-success" %>
+<%= content_tag :div, "", id: "root" %>

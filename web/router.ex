@@ -25,6 +25,7 @@ defmodule Shelftalkers.Router do
   scope "/api", Shelftalkers do
     pipe_through :api
     get "/talkers", TalkerController, :all
+    get "/pdf", TalkerController, :pdf
   end
 
 end
