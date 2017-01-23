@@ -8,6 +8,7 @@ defmodule Shelftalkers.TalkerView do
 
   def talker_json(talker) do
     %{
+      id: talker.id,
       brewer: talker.brewer,
       style: talker.style,
       name: talker.name,

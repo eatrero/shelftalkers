@@ -17,7 +17,7 @@ defmodule Shelftalkers.Talker do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:brewer, :style, :name, :description, :abv, :rating])
+    |> cast(params, [:brewer, :style, :name, :description, :abv, :rating, :id])
     |> validate_required([:brewer, :style, :name, :description, :abv, :rating])
   end
 end

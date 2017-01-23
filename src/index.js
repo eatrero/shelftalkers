@@ -9,9 +9,9 @@ import App from './components/App';
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <button>Print</button>
+    <App></App>
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById('main')
   );
 };
 

@@ -1,1 +1,16 @@
-/* This file is for your main application css. */
+.main-content {
+  background-color: white;
+  padding-left: 200px;
+  overflow-y: auto;
+  z-index: 3;
+  width: 100%;
+}
+
+.side-bar {
+  width: 200px;
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  z-index: 4;
+  padding-right: 20px;
+}

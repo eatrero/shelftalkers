@@ -2,6 +2,7 @@ defmodule Shelftalkers.TalkerController do
   use Shelftalkers.Web, :controller
 
   alias Shelftalkers.Talker
+  alias Shelftalkers.PdfGenerator
 
   def index(conn, _params) do
     talkers = Repo.all(Talker)
@@ -10,7 +11,7 @@ defmodule Shelftalkers.TalkerController do
 
   def all(conn, _params) do
     talkers = Repo.all(Talker)
-    render(conn, "index.json", talkers: talkers)
+    render conn, "index.json", talkers: talkers
   end
 
   def new(conn, _params) do
@@ -68,11 +69,15 @@ defmodule Shelftalkers.TalkerController do
     |> redirect(to: talker_path(conn, :index))
   end
 
-  def pdf(conn, _params) do
-    IO.puts(_params)
+  def pdf(conn, params) do
+#    IO.puts(_params)
+
+#    {:ok, filename} = PdfGenerator.generate "<html><div style='width:612px; border-bottom: 1px solid #000000'></div><h1> Selection #{params["selections"]} </h1></html>", page_size: "Letter", margin_left: "25.4", margin_right: "25.4"
+    {:ok, filename} = PdfGenerator.pdf_generator(params["selections"])
+
     conn
     |> put_resp_content_type("application/pdf")
 #    |> put_resp_header("content-disposition", "attachment; filename=\"/var/folders/96/v5g5_2nj06z3xk59kn6wtynh0000gn/T/8vl7KNVU.pdf\"")
-    |> send_file(200, "/var/folders/96/v5g5_2nj06z3xk59kn6wtynh0000gn/T/8vl7KNVU.pdf")
+    |> send_file(200, filename)
   end
 end
