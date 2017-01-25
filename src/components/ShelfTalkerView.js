@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './App.css';
+import styles from './ShelfTalkerView.css';
 import {observer} from 'mobx-react';
 
 @observer
@@ -8,22 +8,33 @@ class ShelfTalkerView extends React.Component {
     const talker = this.props.talker;
     console.log(talker)
     return (
-      <tr key={talker.talker.id}>
-      <td>
-      <input 
-        type="checkbox"
-        checked={talker.checked}
-        onChange={() => talker.checked = !talker.checked}
-      />
-      </td>
-      <td>{talker.talker.brewer}</td>
-      <td>{talker.talker.name}</td>
-      <td>{talker.talker.style}</td>
-      <td>{talker.talker.description}</td>
-      <td>{talker.talker.abv}</td>
-      <td>{talker.talker.rating}</td>
-      <td><a href={'/talkers/' + talker.talker.id + '/edit'}><button className='btn btn-warning'>Edit</button></a></td>
-      </tr>
+      <div className="col-sm-12 col-md-9 col-lg-6">
+        <div className={styles.talkerWrapper}>
+          <div className={styles.checkMarkWrapper}>
+            <input 
+              type="checkbox"
+              checked={talker.checked}
+              onChange={() => talker.checked = !talker.checked}
+            />
+          </div>
+          <div key={talker.talker.id} className={styles.talkerCard}>
+            <section className={styles.talkerHeader}>
+              <div className={styles.talkerName}>{talker.talker.name}</div>
+              <div className={styles.headerInfo}>
+                <div className={styles.talkerBrewer}>{talker.talker.brewer}</div>
+                <div className={styles.talkerStyle}>{talker.talker.style}</div>
+              </div>
+            </section>
+            <section className={styles.talkerBody}>
+              <div className={styles.talkerDescription}>{talker.talker.description}</div>
+            </section>
+            <section className={styles.talkerFooter}>
+              <div className={styles.talkerABV}>ABV: {talker.talker.abv}</div>
+              <div className={styles.talkerRating}>RATE BEER: {talker.talker.rating}</div>
+            </section>
+          </div>
+        </div>
+      </div>
     );
   }
 }

@@ -9,7 +9,7 @@ import App from './components/App';
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-    <App></App>
+      <App></App>
     </AppContainer>,
     document.getElementById('main')
   );

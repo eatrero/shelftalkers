@@ -33,12 +33,12 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <section className="side-bar">
+        <section className={styles.sideBar}>
           <h1>Shelf Talkers</h1>
            <PrintButton selected={ store.selectedShelfTalkersIds } />
            <a href="/talkers/new"><button className="btn btn-primary btn-block" >New Shelf Talker</button></a>
         </section> 
-        <section className="main-content">
+        <section className={styles.mainContent}>
           <ShelfTalkerListView store={store}/>
 
           <div className='button-row'>
