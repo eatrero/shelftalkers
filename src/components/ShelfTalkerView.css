@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  font-family: 'PT Sans Narrow', sans-serif;
 }
 
 .checkMarkWrapper {
@@ -60,6 +61,7 @@
   padding: 20px;
   height: 60%;
   overflow: hidden;
+  background: no-repeat center/33% url('./bottlecraftlogo.png');
 }
 
 .talkerDescription {

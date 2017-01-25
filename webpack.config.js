@@ -55,6 +55,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.png$/,
+        use: { loader: 'url-loader', options: { limit: 100000 } },
+      },      
+      {
         test: /\.css$/,
         use: [
           'style-loader',
