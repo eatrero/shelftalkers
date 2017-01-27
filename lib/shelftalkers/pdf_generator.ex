@@ -8,8 +8,8 @@ defmodule Shelftalkers.PdfGenerator do
   @headerHTML3 "<div style='height:10mm'></div>"
 
   def pdf_generator(selections) do
-#    ids = selections 
-    ids = "1,3,4,5,6" 
+    ids = selections 
+#    ids = "1,3,4,5,6" 
       |> String.split(",") 
       |> Enum.map(&(String.to_integer &1)) 
 
