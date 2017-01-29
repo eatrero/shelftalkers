@@ -66,6 +66,10 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      {
+        test: /\.(woff|woff2|eot|ttf)$/i,
+        use: { loader: "url-loader?name=fonts/[name]-[hash].[ext]" }
+      },
     ],
   },
 
