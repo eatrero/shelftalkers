@@ -14,7 +14,11 @@ defmodule Shelftalkers.TalkerView do
       name: talker.name,
       description: talker.description,
       abv: talker.abv,
-      rating: talker.rating
+      rating: talker.rating,
+      barcode: talker.barcode,
+      beer: talker.beer,
+      location: talker.location,
+      sku: talker.sku
     }
   end
 end

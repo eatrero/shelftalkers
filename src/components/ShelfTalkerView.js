@@ -19,7 +19,7 @@ class ShelfTalkerView extends React.Component {
           </div>
           <div key={talker.talker.id} className={styles.talkerCard}>
             <section className={styles.talkerHeader}>
-              <div className={styles.talkerName}>{talker.talker.name}</div>
+              <div className={styles.talkerName}>{talker.talker.beer}</div>
               <div className={styles.headerInfo}>
                 <div className={styles.talkerBrewer}>{talker.talker.brewer}</div>
                 <div className={styles.talkerStyle}>{talker.talker.style}</div>
