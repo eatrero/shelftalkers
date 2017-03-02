@@ -7,8 +7,12 @@ defmodule Shelftalkers.Repo.Migrations.CreateTalker do
       add :style, :string
       add :name, :string
       add :description, :string, size: 4096
-      add :abv, :float
+      add :abv, :string
       add :rating, :float
+      add :barcode, :string
+      add :beer, :string
+      add :location, :string
+      add :sku, :string
 
       timestamps()
     end

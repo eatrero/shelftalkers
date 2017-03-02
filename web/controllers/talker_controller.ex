@@ -10,7 +10,8 @@ defmodule Shelftalkers.TalkerController do
   end
 
   def all(conn, _params) do
-    talkers = Repo.all(Talker)
+    query = from Talker, limit: 10
+    talkers = Repo.all(query)
     render conn, "index.json", talkers: talkers
   end
 

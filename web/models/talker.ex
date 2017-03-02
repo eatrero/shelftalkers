@@ -6,8 +6,12 @@ defmodule Shelftalkers.Talker do
     field :style, :string
     field :name, :string
     field :description, :string
-    field :abv, :float
+    field :abv, :string
     field :rating, :float
+    field :barcode, :string
+    field :beer, :string
+    field :location, :string
+    field :sku, :string
 
     timestamps()
   end
@@ -18,6 +22,6 @@ defmodule Shelftalkers.Talker do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:brewer, :style, :name, :description, :abv, :rating, :id])
-    |> validate_required([:brewer, :style, :name, :description, :abv, :rating])
+    |> validate_required([:brewer, :style, :name, :description, :abv])
   end
 end
