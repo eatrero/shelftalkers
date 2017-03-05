@@ -2,7 +2,8 @@ defmodule Shelftalkers.TalkerView do
   use Shelftalkers.Web, :view
   def render("index.json", %{talkers: talkers}) do
     %{
-      talkers: Enum.map(talkers, &talker_json/1)
+      count: talkers.count,
+      talkers: Enum.map(talkers.talkers, &talker_json/1)
     }
   end
 

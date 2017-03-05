@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Shelftalkers!</title>
+    <title>Shelftalkers</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -16,7 +16,8 @@
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
-      <%= render @view_module, @view_template, assigns %>
+      <div role="main" id="main"></div>
+      <%= content_tag :div, "", id: "root" %>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/bundle.js") %>"></script>

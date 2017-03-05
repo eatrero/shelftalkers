@@ -9,10 +9,41 @@ defmodule Shelftalkers.TalkerController do
     render(conn, "index.html", talkers: talkers)
   end
 
-  def all(conn, _params) do
-    query = from Talker, limit: 10
+  def all(conn, params) do
+#    IO.puts params
+    size = Map.get(params,"size") || 10
+    offset = Map.get(params,"offset") || 0
+    order = Map.get(params,"order") || "asc"
+    order = get_order(order)
+    order_by = Map.get(params,"order_by") || "beer"
+    order_by = get_order_by(order, order_by) || [asc: :beer]
+
+    query = Talker
+     |> limit(^size)
+     |> offset(^offset)
+     |> order_by(^order_by)
+
     talkers = Repo.all(query)
-    render conn, "index.json", talkers: talkers
+    count = Repo.aggregate(Talker, :count, :id)
+    render conn, "index.json", talkers: %{ :count => count, :talkers => talkers }
+  end
+
+  def get_order(order) do 
+    case order do
+      "asc" -> String.to_atom("asc")
+      "desc" -> String.to_atom("desc")
+      _ -> String.to_atom("asc")
+    end
+  end
+
+  def get_order_by(order, order_by) do
+    case order_by do
+      "beer" -> Keyword.new([{order, :beer}])
+      "brewer" -> Keyword.new([{order, :brewer}])
+      "abv" -> Keyword.new([{order, :abv}])
+      "rating" -> Keyword.new([{order, :rating}])
+      _ -> [asc: :beer]
+    end
   end
 
   def new(conn, _params) do

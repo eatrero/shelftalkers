@@ -6,7 +6,6 @@ import {observer} from 'mobx-react';
 class ShelfTalkerView extends React.Component { 
   render() { 
     const talker = this.props.talker;
-    console.log(talker)
     return (
       <div className="col-sm-12 col-md-9 col-lg-6">
         <div className={styles.talkerWrapper}>

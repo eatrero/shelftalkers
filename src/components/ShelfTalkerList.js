@@ -3,6 +3,12 @@ import ShelfTalker from './ShelfTalker';
 
 class ShelfTalkerList {
   @observable shelfTalkers = [];
+
+  constructor() {
+    this.size = 20;
+    this.offset = 0;
+    this.count = 0;
+  }
   
   @computed get selectedShelfTalkersCount() {
     return this.shelfTalkers.filter(
@@ -18,6 +24,18 @@ class ShelfTalkerList {
 
   addShelfTalker(shelfTalker) {
     this.shelfTalkers.push(new ShelfTalker(shelfTalker));
+  }
+
+  clear() {
+    this.shelfTalkers = [];
+  }
+
+  setCount(count) {
+    this.count = count;
+  }
+
+  getCount() {
+    return this.count;
   }
 }
 

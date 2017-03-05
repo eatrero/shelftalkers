@@ -11,14 +11,16 @@ class ShelfTalkerListView extends React.Component {
   }
 
   render() {
-    const { shelfTalkers } = this.props.store;
+    const { shelfTalkers, offset, size } = this.props.store;
     const { TableHeader } = this;
+
+    const start = size*offset;
+    const end = start + size - 1;
 
     return (
       <div>
         <div className="row">
-          { shelfTalkers.map((talker, idx) => {
-            console.log(talker)
+          { shelfTalkers.slice(start, end).map((talker, idx) => {
             return (
               <ShelfTalkerView talker={talker} key={idx}/>
             );
