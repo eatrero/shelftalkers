@@ -4,8 +4,20 @@ import {observer} from 'mobx-react';
 
 @observer
 class ShelfTalkerView extends React.Component { 
+  getDescriptionStyle(len) {
+    if (len < 60) {
+      return styles.talkerDescriptionShort;
+    } else if (len < 120) {
+      return styles.talkerDescriptionMed;      
+    }
+    return styles.talkerDescriptionLong;
+  }
+
   render() { 
     const talker = this.props.talker;
+    const descriptionStyle = this.getDescriptionStyle(talker.talker.description.length);
+    console.log('length', talker.talker.description.length, descriptionStyle)
+
     return (
       <div className="col-sm-12 col-md-9 col-lg-6">
         <div className={styles.talkerWrapper}>
@@ -25,7 +37,7 @@ class ShelfTalkerView extends React.Component {
               </div>
             </section>
             <section className={styles.talkerBody}>
-              <div className={styles.talkerDescription}>{talker.talker.description}</div>
+              <div className={descriptionStyle}>{talker.talker.description}</div>
             </section>
             <section className={styles.talkerFooter}>
               <div className={styles.talkerABV}>ABV: {talker.talker.abv}</div>

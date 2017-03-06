@@ -69,8 +69,18 @@
   background: no-repeat center/25% url('./bottlecraftlogo.png');
 }
 
-.talkerDescription {
-  font-size: 0.8em;
+.talkerDescriptionShort {
+  font-size: 2.0em;
+  text-overflow: ellipsis;
+}
+
+.talkerDescriptionMed {
+  font-size: 1.6em;
+  text-overflow: ellipsis;
+}
+
+.talkerDescriptionLong {
+  font-size: 1.3em;
   text-overflow: ellipsis;
 }
 
